@@ -14,41 +14,40 @@ struct LoginView: View {
     @State var isLogin = false
     
     var body: some View {
-        VStack{
-            HeaderView()
-            //Login form
-            
-            Form{
-                TextField("Email address", text:$email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                Button{
-                    
-                } label: {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.blue)
-                        Text("Login")
-                            .foregroundColor(.white)
-                            .bold()
-                    }
-                }
-
-            }
-            //create account
+        NavigationView{
             VStack{
-                Text("New here?")
-                Button("Create an account") {
+                HeaderView()
+                //Login form
+                
+                Form{
+                    TextField("Email address", text:$email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    SecureField("Password", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
+                    Button{
+                        
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.blue)
+                            Text("Login")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
+                    }
+
                 }
+                VStack{
+                    Text("New here?")
+                    NavigationLink("Create an account", destination: RegisterView())
+                }
+                .padding(.bottom, 10)
+                
+                Spacer()
+                //Wanwamy
+                //Wanmy Mac
             }
-            .padding(.bottom, 10)
-            
-            Spacer()
-            //Wanwamy
-            //Wanmy Mac
         }
     }
 }
