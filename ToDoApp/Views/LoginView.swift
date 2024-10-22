@@ -47,6 +47,8 @@ struct LoginView: View {
             .padding(.bottom, 10)
             
             Spacer()
+            //Wanwamy
+            //Wanmy Mac
         }
     }
 }
