@@ -11,33 +11,25 @@ struct LoginView: View {
     
     @State var email = ""
     @State var password = ""
-    @State var isLogin = false
     
     var body: some View {
         NavigationView{
             VStack{
-                HeaderView()
-                //Login form
-                
+                HeaderView(title: "To Do List", subtitle: "Timeless", info: "Tuấn Cùi ft. Playboi Carti", angle: 15, backgroundColor: .gray)
                 Form{
                     TextField("Email address", text:$email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     SecureField("Password", text: $password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    Button{
+                    TLButton(title: "Login", backgroundColor: .blue) {
                         
-                    } label: {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.blue)
-                            Text("Login")
-                                .foregroundColor(.white)
-                                .bold()
-                        }
                     }
+                    .padding()
 
                 }
+                .offset(y: -95)
+                
                 VStack{
                     Text("New here?")
                     NavigationLink("Create an account", destination: RegisterView())
