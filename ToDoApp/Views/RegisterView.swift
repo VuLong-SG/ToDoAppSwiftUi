@@ -15,32 +15,27 @@ struct RegisterView: View {
     
     var body: some View {
         VStack {
-            HeaderView(title: "Resgiter", subtitle: "Non Timeless", info: "Tuấn Cùi ft. Playboi Carti", angle: -15, backgroundColor: .blue)
+            HeaderView(title: "Resgiter", subtitle: "Non Timeless", info: "Tuấn Cùi ft. Playboi Carti", angle: -15, backgroundColor: .teal)
             
             Form{
                 TextField("Name", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocorrectionDisabled()
                 TextField("Email", text: $email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocorrectionDisabled()
+                    .autocapitalization(.none)
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                Button{
-                    
-                } label: {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.blue)
-                        Text("Register")
-                            .foregroundColor(.white)
-                            .bold()
-                    }
+                TLButton(title: "Create account", backgroundColor: .green) {
                 }
             }
             .offset(y: -95)
             
             Spacer()
         }
+        .offset(y: -20)
         
 //        VStack{
 //            Text("Already have an account?")
@@ -48,7 +43,7 @@ struct RegisterView: View {
 //            NavigationLink("Go to login", destination: LoginView())
 //                .foregroundColor(.blue)
 //        }
-        .padding(.bottom, 10)
+        .padding(.bottom, 0)
     }
 }
 
